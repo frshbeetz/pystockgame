@@ -54,7 +54,18 @@ def sell(stockprice, quantity, current_balance):
 
 buysell = raw_input("Buy or Sell?(B/S): ")
 if buysell == "B":
-	quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to buy?: ")
+	quantity = None
+	# loop until user inputs a valid number.
+	while not quantity:
+		quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to buy?: ")
+		try:
+			# convert to float number for math
+			quantity = float(quantity)
+		except:
+			# user entered non-number input
+			print('Invalid amount given!')
+			quantity = None
+	
 	print buy(stockprice, quantity, current_balance)
 elif buysell == "S":
 	quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to sell?: ")

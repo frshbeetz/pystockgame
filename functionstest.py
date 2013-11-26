@@ -26,8 +26,12 @@ def transaction_positive(current_balance,plus):
 	current_balance = newbalance
 	return current_balance
 """	
+
+Fixed by welbornprod!
+
  For some reason calling the buy and sell functions breaks the program 
  on the grounds that current_balance is a string and not an integer... I can't figure out why.
+
 """
 	
 def buy(stockprice, quantity, current_balance):
@@ -67,8 +71,10 @@ if buysell == "B":
 			quantity = None
 	
 	print buy(stockprice, quantity, current_balance)
+
 elif buysell == "S":
 	quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to sell?: ")
 	print sell(stockprice, quantity, current_balance)
+
 else:
 	print "Invalid Input"

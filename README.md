@@ -14,9 +14,11 @@ What I've learned so far:
 - [x] Variables and using them. 
 - [x] Importing curses.
 - [x] Defining a window and drawing some lines, strings, and variables (as strings) into it. 
+
 What I would like to learn (Short Term) 
-- [x] Dynamically sizing the curses screen (Down to a minimum size to be determined.) 
-- [x] Interaction (Specifically highlighting the ticker/price rows a row at at time with the up and down keys.) 
-- [x] Using panel to facilitate complex interactions (Specifically, selecting highlighted row with the Enter key, and floating a new "window" in the center of the screen.) 
+
+- [ ] Dynamically sizing the curses screen (Down to a minimum size to be determined.) 
+- [ ] Interaction (Specifically highlighting the ticker/price rows a row at at time with the up and down keys.) 
+- [ ] Using panel to facilitate complex interactions (Specifically, selecting highlighted row with the Enter key, and floating a new "window" in the center of the screen.) 
  
 Inspiration for this game comes from Scott Adams' (The Creator of Dilbert) 1987 DOS Game "Black Monday".

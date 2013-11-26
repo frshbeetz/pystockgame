@@ -36,7 +36,7 @@ def buy(stockprice, quantity, current_balance):
 		print "Insufficient Funds"
 	else:
 		transaction_negative(current_balance,cost)
-		addshares(shares_held, quantity)
+		add_shares(shares_held, quantity)
 		print "You hold: " + str(shares_held) + " shares."
 		print "Your remaining balance is: $" + str(current_balance)
 

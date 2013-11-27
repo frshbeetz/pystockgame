@@ -51,8 +51,8 @@ if buysell == "b":
 			print('Invalid amount given!')
 			quantity = None
 	
-		result, current_balance, shares_held = buy(stockprice, quantity, current_balance)
-		print "%r,%.2f.%d" % (result, current_balance, stocks_added)
+	result, current_balance, shares_added= buy(stockprice, quantity, current_balance)
+	print "%r,%.2f,%d" % (result, current_balance, shares_added)
 
 elif buysell == "s":
 	quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to sell?: ")

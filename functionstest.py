@@ -2,6 +2,7 @@
 current_balance = 1000
 stockprice = 100.0
 shares_held = 10
+shares_added = 0
 # If I knew what I was doing, these would probably be one function.
 def add_shares(shares_held,quantity):
 	return shares_held + quantity
@@ -22,8 +23,8 @@ def buy(stockprice, quantity, current_balance, balance_threshold=0):
 		return (False, current_balance, 0)
 	else:
 		current_balance = transaction_negative(current_balance,cost)
-		shares_held = add_shares(shares_held, quantity)
-		return (True, current_balance, shares_held)
+		shares_added = add_shares(shares_held, quantity)
+		return (True, current_balance, shares_added)
 
 def sell(stockprice, quantity, current_balance):
 	plus = stockprice * quantity
@@ -50,7 +51,8 @@ if buysell == "b":
 			print('Invalid amount given!')
 			quantity = None
 	
-	buy(stockprice, quantity, current_balance)
+		result, current_balance, shares_held = buy(stockprice, quantity, current_balance)
+		print "%r,%.2f.%d" % (result, current_balance, stocks_added)
 
 elif buysell == "s":
 	quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to sell?: ")

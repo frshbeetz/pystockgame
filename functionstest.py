@@ -1,78 +1,58 @@
 # This code is written poorly and doesn't work.
-
 current_balance = 1000
-stockprice = 100
+stockprice = 100.0
 shares_held = 10
-
 # If I knew what I was doing, these would probably be one function.
-
 def add_shares(shares_held,quantity):
-	newshares_held = shares_held + quantity
-	shares_held = newshares_held
-	return shares_held
-
+	return shares_held + quantity
 def remove_shares(shares_held,quantity):
-	newshares_held = shares_held - quantity
-	shares_held = newshares_held
-	return shares_held
-
+	return shares_held - quantity
 def transaction_negative(current_balance,cost):
-	newbalance = current_balance - cost 
-	current_balance = newbalance
-	return current_balance
-
+	return current_balance - cost
 def transaction_positive(current_balance,plus):
-	newbalance = current_balance + plus 
-	current_balance = newbalance
-	return current_balance
+	return current_balance + plus
 """	
-
 Fixed by welbornprod!
-
  For some reason calling the buy and sell functions breaks the program 
  on the grounds that current_balance is a string and not an integer... I can't figure out why.
-
 """
-	
-def buy(stockprice, quantity, current_balance):
+def buy(stockprice, quantity, current_balance, balance_threshold=0):
 	cost = stockprice * quantity
-	if current_balance - cost < 0:
-		print "Insufficient Funds"
+	if current_balance - cost < balance_threshold:
+		return (False, current_balance, 0)
 	else:
-		transaction_negative(current_balance,cost)
-		add_shares(shares_held, quantity)
-		print "You hold: " + str(shares_held) + " shares."
-		print "Your remaining balance is: $" + str(current_balance)
+		current_balance = transaction_negative(current_balance,cost)
+		shares_held = add_shares(shares_held, quantity)
+		return (True, current_balance, shares_held)
 
 def sell(stockprice, quantity, current_balance):
 	plus = stockprice * quantity
 	if shares_held  < quantity:
-		print "Insufficient Shares"
+		return (False, current_balance, 0)
 	else:
 		transaction_positive(current_balance,plus)
 		remove_shares(shares_held, quantity)
-		print "You hold: " + str(shares_held) + " shares."
-		print "Your remaining balance is: $" + str(current_balance)
+		return (True, current_balance, shares_held)
 
 # Asks the user explictly for B or S because I'm lazy.  Then calls the functions... or rather... breaks.
 
-buysell = raw_input("Buy or Sell?(B/S): ")
-if buysell == "B":
+buysell = raw_input("Buy or Sell?(B/S): ").lower()
+if buysell == "b":
 	quantity = None
 	# loop until user inputs a valid number.
 	while not quantity:
 		quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to buy?: ")
 		try:
-			# convert to float number for math
-			quantity = float(quantity)
+			# convert to int  number for math - no fraction shares.
+			quantity = int(quantity)
 		except:
 			# user entered non-number input
 			print('Invalid amount given!')
 			quantity = None
 	
-	print buy(stockprice, quantity, current_balance)
+	buy(stockprice, quantity, current_balance)
 
-elif buysell == "S":
+elif buysell == "s":
 	quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to sell?: ")
 	print sell(stockprice, quantity, current_balance)
 

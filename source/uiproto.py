@@ -118,4 +118,4 @@ win.addstr(37, 2, "MAJORITY SHAREHOLDER:")
 while True:
     event = screen.getch()
     if event == ord("q"): break
-curses.endwin()
+curses.endwin=()

@@ -1,10 +1,11 @@
 # Well... Here goes...
 # init some variables
 stockprice = 100.0
+current_balance = 1000
 shares_held = 10
 shares_added = 0
 shares_removed = 0
-
+position_value = stockprice * shares_held
 
 # Define some transaction functions
 def add_shares(shares_held,quantity):
@@ -38,6 +39,8 @@ if buysell == "b":
 	quantity = None
 	# loop until user inputs a valid number.
 	while not quantity:
+		print "You have " + str(shares_held) + " shares."
+		print "Your position is worth $" + str(position_value)
 		quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to buy?: ")
 		try:
 			# convert to int  number for math - no fraction shares.
@@ -55,6 +58,7 @@ elif buysell == "s":
 	# loop until user inputs a valid number.
 	while not quantity:
 		print "You have " + str(shares_held) + " shares."
+		print "Your position is worth $" + str(position_value)
 		quantity = raw_input("The stock is $" + str(stockprice) + " per share." " How many shares do you want to sell?: ")
 		try:
 			# convert to int  number for math - no fraction shares.

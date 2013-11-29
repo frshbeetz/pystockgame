@@ -1,10 +1,12 @@
-# This code is written poorly and doesn't work well.
-current_balance = 1000
+# Well... Here goes...
+# init some variables
 stockprice = 100.0
 shares_held = 10
 shares_added = 0
 shares_removed = 0
-# If I knew what I was doing, these would probably be one function.
+
+
+# Define some transaction functions
 def add_shares(shares_held,quantity):
 	return shares_held + quantity
 def remove_shares(shares_held,quantity):
@@ -13,9 +15,6 @@ def transaction_negative(current_balance,cost):
 	return current_balance - cost
 def transaction_positive(current_balance,plus):
 	return current_balance + plus
-"""	
-Fixed by welbornprod!
-"""
 def buy(stockprice, quantity, current_balance, balance_threshold=0):
 	cost = stockprice * quantity
 	if current_balance - cost < balance_threshold:
@@ -24,7 +23,6 @@ def buy(stockprice, quantity, current_balance, balance_threshold=0):
 		current_balance = transaction_negative(current_balance,cost)
 		shares_added = add_shares(shares_held, quantity)
 		return (True, current_balance, shares_added)
-
 def sell(stockprice, quantity, current_balance):
 	plus = stockprice * quantity
 	if shares_held  < quantity:
@@ -34,8 +32,7 @@ def sell(stockprice, quantity, current_balance):
 		shares_removed = remove_shares(shares_held, quantity)
 		return (True, current_balance, shares_removed)
 
-# Asks the user explictly for B or S because I'm lazy.  Then calls the functions... or rather... breaks.
-
+# Here begins the interactive section
 buysell = raw_input("Buy or Sell?(B/S): ").lower()
 if buysell == "b":
 	quantity = None

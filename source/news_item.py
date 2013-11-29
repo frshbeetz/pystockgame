@@ -8,3 +8,4 @@ class news_item:
         self.polarity = 0   #no effect by default
         self.heading = ""
         self.text = ""
+    #Added to test push

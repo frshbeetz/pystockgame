@@ -1,0 +1,44 @@
+# Python Networked Stock Game
+
+EXECUTE
+ +JOIN/HOST/SOLO/QUIT Screen
+	|
+	+JOIN
+	|  |
+	|  +USERNAME/IP INPUT fields
+	|     |
+	|     +LOBBY [chat]
+	|	 |
+	|	 +GAME STARTING... timer
+	|	    |
+	|	    +MAIN GAME - [main screen, game timer <= 59s - Blink]
+	|		|	   [side bar - chat/portfolio		]
+	|		|
+	|		+BUY
+	|		|  |
+	|		|  +[highlight stocks in list, enter to select]
+	|		|	|
+	|		|	+ENTER [panel - execute, price, balance, quant]
+	|		|
+	|		+SELL
+	|		|  |
+	|		|  +[highlight stocks in list, enter to select]
+	|		|	|
+	|		|	+ENTER [panel - execute, price, balance, quant]
+	|		|
+	|		+SHORT
+	|		|
+	|		+VOTE TO END ROUND / Timer ENDS
+	|			|
+	|			+NEWS INTERMISSION [Bankruptcy, News Ticker]
+	|			  < Back to MAIN   [Dividends	]
+	+HOST
+	|  |
+	|  +CONFIGLOBBY [ip, plyrlist, vol, strt_balance, strt_timer]
+	|     |		[hosts username, solomode_chkbox       ]
+	|     +GAME STARTING... timer
+	|     |
+	|     +SOLO (a more random game to account for lack of players)
+	|
+
+	+QUIT

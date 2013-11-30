@@ -41,15 +41,18 @@ if buysell == "b":
 	while not quantity:
 		print "You have %d shares." % (shares_held)
 		print "Your position is worth $%d" % (position_value)
-		quantity = input("The stock is $%d per share. How many shares do you want to buy?: " % (stockprice))
 		try:
-			# convert to int  number for math - no fraction shares.
-			quantity = int(quantity)
+			quantity = input("The stock is $%d per share. How many shares do you want to buy?: " % (stockprice))
+			try:
+				# convert to int  number for math - no fraction shares.
+				quantity = int(quantity)
+			except:
+				# user entered non-number input
+				print('Invalid amount given!')
+				quantity = None
 		except:
-			# user entered non-number input
-			print('Invalid amount given!')
+			print('Invalid Input!')
 			quantity = None
-	
 	result, current_balance, shares_added = buy(stockprice, quantity, current_balance)
 	print "%r,$%.2f,%d" % (result, current_balance, shares_added)
 
@@ -59,15 +62,18 @@ elif buysell == "s":
 	while not quantity:
 		print "You have %d shares." % (shares_held)
 		print "Your position is worth $%d" % (position_value)
-		quantity = input("The stock is $%d per share. How many shares do you want to sell?: " % (stockprice))
 		try:
-			# convert to int  number for math - no fraction shares.
-			quantity = int(quantity)
+			quantity = input("The stock is $%d per share. How many shares do you want to sell?: " % (stockprice))
+			try:
+				# convert to int  number for math - no fraction shares.
+				quantity = int(quantity)
+			except:
+				# user entered non-number input
+				print('Invalid amount given!')
+				quantity = None
 		except:
-			# user entered non-number input
-			print('Invalid amount given!')
+			print('Invalid Input!')
 			quantity = None
-	
 	result, current_balance, shares_removed = sell(stockprice, quantity, current_balance)
 	print "%r,$%.2f,%d" % (result, current_balance, shares_removed)
 else:

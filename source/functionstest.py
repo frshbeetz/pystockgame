@@ -34,47 +34,30 @@ def sell(stockprice, quantity, current_balance):
 		return (True, current_balance, shares_removed)
 
 # Here begins the interactive section
-buysell = raw_input("Buy or Sell?(B/S): ").lower()
-if buysell == "b":
-	quantity = None
-	# loop until user inputs a valid number.
-	while not quantity:
-		print "You have %d shares." % (shares_held)
-		print "Your position is worth $%d" % (position_value)
-		try:
-			quantity = input("The stock is $%d per share. How many shares do you want to buy?: " % (stockprice))
-			try:
-				# convert to int  number for math - no fraction shares.
-				quantity = int(quantity)
-			except:
-				# user entered non-number input
-				print('Invalid amount given!')
-				quantity = None
-		except:
-			print('Invalid Input!')
-			quantity = None
-	result, current_balance, shares_added = buy(stockprice, quantity, current_balance)
-	print "%r,$%.2f,%d" % (result, current_balance, shares_added)
+quantity = None
+valid_input = False
+while valid_input == False:
+	buysell = raw_input("Buy or Sell?(B/S): ").lower()
+	valid_input = True
+	if buysell == "b":
+		xact_string = "buy"
+		xact_fn = buy
+	elif buysell == "s":
+		xact_string = "sell"
+		xact_fn  = sell
+	else:
+		valid_input = False
+		print "B or S it's not hard."
+	
+# loop until user inputs a valid number.
+while not quantity:
+	print "You have %d shares." % (shares_held)
+	print "Your position is worth $%d" % (position_value)
+	try:
+		quantity = input("The stock is $%d per share. How many shares do you want to %s?: " % (stockprice, xact_string))
+	except:
+		print('Invalid Input!')
+		quantity = None
+result, current_balance, shares_added = xact_fn(stockprice, quantity, current_balance)
+print "%r,$%.2f,%d" % (result, current_balance, shares_added)
 
-elif buysell == "s":
-	quantity = None
-	# loop until user inputs a valid number.
-	while not quantity:
-		print "You have %d shares." % (shares_held)
-		print "Your position is worth $%d" % (position_value)
-		try:
-			quantity = input("The stock is $%d per share. How many shares do you want to sell?: " % (stockprice))
-			try:
-				# convert to int  number for math - no fraction shares.
-				quantity = int(quantity)
-			except:
-				# user entered non-number input
-				print('Invalid amount given!')
-				quantity = None
-		except:
-			print('Invalid Input!')
-			quantity = None
-	result, current_balance, shares_removed = sell(stockprice, quantity, current_balance)
-	print "%r,$%.2f,%d" % (result, current_balance, shares_removed)
-else:
-	print "Invalid Input"

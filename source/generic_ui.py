@@ -10,6 +10,7 @@ import game_state
 
 class generic_ui:
         def init(self):
+            return
         
         def render(self, game_state):
-            
+            return

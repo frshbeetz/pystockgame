@@ -25,7 +25,7 @@
 # |			Lowest Tier Corporation
 # |			Lowest Starting EQUITY Price
 # |			Seed = Average of Commodity Indexes * 2
-# |			Voloatility = highest
+# |			Volatility = highest
 # |
 # +-----INDUSTRIAL COMPANIES
 # |	 |

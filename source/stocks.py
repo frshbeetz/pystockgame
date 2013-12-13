@@ -132,7 +132,7 @@ class Equities:
 		self.price = None # based on change from round 0 opening price
 		self.volatity = None # calculation based on related Commod. / News
 		self.sharesAvail = None # default 1000000
-		self.desc = None
+		self.desc = None # A short description of the company
 
 # I know this is the same as above, but later on when we want to make a
 # distinction between the two, hopefully it'll make sense to do it like
@@ -142,9 +142,9 @@ class Commodities:
 	def __init__(self)
 		self.ticker = None
 		self.price = None # Generally lower priced than equities
-		self.volatility = None # calculation based on News/P-RNG
+		self.volatility = None # calculation based on News/Random Number Gen
 		self.commodAvail = None # default 5000000
-		self.desc = None
+		self.desc = None # A short description of the commodity
 
 # Precious metals should move inversely to the markets. While not a rule IRL,
 # this will give players a means to "bet against" the whole market index.
@@ -154,8 +154,8 @@ class PrecMetals:
 	
 	def ___init__(self)
 		self.ticker = None
-		self.price = None
-		self.volatility = None
+		self.price = None 
+		self.volatility = None # calculation based on XWMI price change
 
 # Indexes should be based on a calculation of the underlying stocks.
 # Whole Market Index should be an average of all Equities and Commod. prices.

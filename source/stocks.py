@@ -54,7 +54,7 @@
 # 	 +------CoalEnergy
 # 			Seed = Coal COMMODITY
 #
-# COMMODDITIES
+# COMMODITIES
 # |
 # +----ENERGY
 # |	 |
@@ -70,7 +70,7 @@
 # |	 |
 # |	 +----ALUMINUM
 # |
-# +----AGRICULTUAL COMMODITIES
+# +----AGRICULTURAL COMMODITIES
 # |	 |
 # |	 +----WHEAT
 # |	 |
@@ -163,4 +163,13 @@ class Indexes:
 	def __init__(self)
 		self.ticker = None
 		self.price = None
-		
+
+# Bonds are a non-volatile investment option.  Basically they should gain
+# a small amount consistently every round.  The price should be set to par
+# ($100) by default.  But it could be configured.  The rate of return could
+# be set at say 5% by default, or fluctuate between non-negative values.
+class Bonds:
+
+	def __init__(self)
+		self.ticker = None
+		self.price = None	

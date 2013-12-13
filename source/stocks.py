@@ -144,7 +144,7 @@ class Tradeable(object):
 	
 
 # Corporations [ULTR,MEGA,MULTI,UNIC,STCO,FACT,FARM,AIRC,LAND,GACO,COCO]
-# Commoddities [OIL, COAL, GAS, STEEL, ALUM, WHT, COFF, LIVE]
+# Commoddities [OIL, COAL, GAS, STEL, ALUM, WHT, COFF, LIVE]
 # Precious Metals [AU, AG]
 # Indexes [XWMI, XBLU, XIND, XTRA, XENC, XCOM, XNRG, XAGR, XAUG]
 # Bonds [BOND]

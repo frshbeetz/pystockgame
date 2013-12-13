@@ -155,20 +155,20 @@ class Tradeable(object):
 # The amount of shares Bought or Sold should affect the volatility in some way.
 # IE: If more shares are bought than sold, the price should trend up.
 #	the same should happen in reverse if the reverse is true.
-class Equities(Tradeable):
+class Equity(Tradeable):
 
 	def __init__(self):
-		super(Equities, self).__init__() #runs Tradeable.__init__	
-		self.volatity = None # calculation based on related Commod. / News
+		super(Equity, self).__init__() #runs Tradeable.__init__	
+		self.volatility = None # calculation based on related Commod. / News
 		self.sharesAvail = None # default 1000000
 
 # I know this is the same as above, but later on when we want to make a
 # distinction between the two, hopefully it'll make sense to do it like
 # this.
-class Commodities(Tradeable):
+class Commodity(Tradeable):
 
 	def __init__(self):
-		super(Commodities, self).__init__() #runs Tradeable.__init__	
+		super(Commodity, self).__init__() #runs Tradeable.__init__	
 		self.volatility = None # calculation based on News/Random Number Gen
 		self.commodAvail = None # default 5000000
 
@@ -178,26 +178,26 @@ class Commodities(Tradeable):
 # Gold = high/mid volatility | Silver = low volatility
 # It would be cool to initialize the values with the spot price of gold/silver
 # from the internet.
-class PrecMetals(Tradeable):
+class PrecMetal(Tradeable):
 	
 	def ___init__(self):
-		super(PrecMetals, self).__init__() #runs Tradeable.__init__	
+		super(PrecMetal, self).__init__() #runs Tradeable.__init__	
 		self.volatility = None # calculation based on XWMI price change
 
 # Indexes should be based on a calculation of the underlying stocks.
 # Whole Market Index should be an average of all Equities and Commod. prices.
 # Energy Co's index would be just an average of the Energy Companies prices.
-class Indexes(Tradeable):
+class Index(Tradeable):
 	
 	def __init__(self):
-		super(Indexes, self).__init__() #runs Tradeable.__init__	
+		super(Index, self).__init__() #runs Tradeable.__init__	
 
 # Bonds are a non-volatile investment option.  Basically they should gain
 # a small amount consistently every round.  The price should be set to par
 # ($100) by default.  But it could be configured.  The rate of return could
 # be set at say 5% by default, or fluctuate between non-negative values.
 # If we implement Loans, we could base bonds off of the interest rate.
-class Bonds(Tradeable):
+class Bond(Tradeable):
 
 	def __init__(self):
-		super(Bonds, self).__init__() #runs Tradeable.__init__	
+		super(Bond, self).__init__() #runs Tradeable.__init__	

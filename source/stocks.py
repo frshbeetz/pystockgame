@@ -122,13 +122,16 @@ TICKERS
 # These are the basic companies, each should respond to related commodities
 # in a more or less realistic way, IE: Oil prices being high will cause
 # lost revenue for transport companies.
+# The amount of shares Bought or Sold should affect the volatility in some way.
+# IE: If more shares are bought than sold, the price should trend up.
+#	the same should happen in reverse if the reverse is true.
 class Equities:
 
 	def __init__(self)
 		self.ticker = None
-		self.price = None
-		self.volatity = None
-		self.sharesAvail = None
+		self.price = None # based on change from round 0 opening price
+		self.volatity = None # calculation based on related Commod. / News
+		self.sharesAvail = None # default 1000000
 		self.desc = None
 
 # I know this is the same as above, but later on when we want to make a
@@ -138,9 +141,9 @@ class Commodities:
 
 	def __init__(self)
 		self.ticker = None
-		self.price = None
-		self.volatility = None
-		self.commodAvail = None
+		self.price = None # Generally lower priced than equities
+		self.volatility = None # calculation based on News/P-RNG
+		self.commodAvail = None # default 5000000
 		self.desc = None
 
 # Precious metals should move inversely to the markets. While not a rule IRL,
@@ -157,7 +160,6 @@ class PrecMetals:
 # Indexes should be based on a calculation of the underlying stocks.
 # Whole Market Index should be an average of all Equities and Commod. prices.
 # Energy Co's index would be just an average of the Energy Companies prices.
- 
 class Indexes:
 	
 	def __init__(self)
@@ -168,6 +170,7 @@ class Indexes:
 # a small amount consistently every round.  The price should be set to par
 # ($100) by default.  But it could be configured.  The rate of return could
 # be set at say 5% by default, or fluctuate between non-negative values.
+# If we implement Loans, we could base bonds off of the interest rate.
 class Bonds:
 
 	def __init__(self)

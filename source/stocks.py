@@ -150,6 +150,8 @@ class Commodities:
 # this will give players a means to "bet against" the whole market index.
 # Gold should start at a higher price than Silver.
 # Gold = high/mid volatility | Silver = low volatility
+# It would be cool to initialize the values with the spot price of gold/silver
+# from the internet.
 class PrecMetals:
 	
 	def ___init__(self)
